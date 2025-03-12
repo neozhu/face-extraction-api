@@ -10,6 +10,10 @@ from deepface import DeepFace
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def index():
+    return "Application started successfully", 200
+
 @app.route('/extract_face', methods=['POST'])
 def extract_face():
     # Get the image URL from the request
