@@ -3,3 +3,4 @@ deepface
 opencv-python
 requests
 matplotlib
+tf-keras

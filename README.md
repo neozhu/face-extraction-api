@@ -74,6 +74,9 @@ The API will be available at `http://localhost:5000`.
          proxy:
        security_opt:
          - no-new-privileges:true
+   networks:
+      proxy:
+         external: true      
    ```
 
 ## API Endpoints
