@@ -65,10 +65,10 @@ The API will be available at `http://localhost:5000`.
        labels:
          - "traefik.enable=true"
          # Replace 'faceextraction.example.com' with your actual domain
-         - "traefik.http.routers.faceextraction-api.rule=Host(`faceextraction.example.com`)"
-         - "traefik.http.routers.faceextraction-api..tls=true"
-         - "traefik.http.routers.faceextraction-api.entrypoints=https"
-         - "traefik.http.services.faceextraction-api.loadbalancer.server.port=5000"
+         - "traefik.http.routers.faceextraction.rule=Host(`faceextraction.example.com`)"
+         - "traefik.http.routers.faceextraction.tls=true"
+         - "traefik.http.routers.faceextraction.entrypoints=https"
+         - "traefik.http.services.faceextraction.loadbalancer.server.port=5000"
          - "traefik.docker.network=proxy"
        networks:
          proxy:
