@@ -53,6 +53,30 @@ The API will be available at `http://localhost:5000`.
    docker run -p 5000:5000 face-extraction-api
    ```
 
+3. Docker compose file:
+   ```yml
+   version: '3.8'
+
+services:
+  face-extraction-api:
+    image: blazordevlab/face-extraction-api:latest
+    container_name: faceextraction
+    ports:
+      - "5000:5000"
+    labels:
+      - "traefik.enable=true"
+      # Replace 'faceextraction.example.com' with your actual domain
+      - "traefik.http.routers.faceextraction-api.rule=Host(`faceextraction.example.com`)"
+      - "traefik.http.routers.faceextraction-api..tls=true"
+      - "traefik.http.routers.faceextraction-api.entrypoints=https"
+      - "traefik.http.services.faceextraction-api.loadbalancer.server.port=5000"
+      - "traefik.docker.network=proxy"
+    networks:
+      proxy:
+    security_opt:
+      - no-new-privileges:true
+   ```
+
 ## API Endpoints
 
 ### 1. Extract Face by Image URL
