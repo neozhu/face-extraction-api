@@ -16,6 +16,15 @@ A simple Flask-based API that extracts the highest-confidence face from an image
 - Expands the detected face region by 20%.
 - Returns the cropped image as a downloadable attachment.
 
+## Example
+
+The following demonstrates the original image and the cropped face image side by side:
+
+<p>
+  <img src="img/original_image.jpg" alt="Original Image" width="45%" style="display: inline-block; margin-right: 5%;" />
+  <img src="img/extracted_face.jpg" alt="Cropped Face Image" width="41%" style="display: inline-block;" />
+</p>
+
 ## Requirements
 
 - Python 3.9+
