@@ -1,0 +1,5 @@
+flask
+deepface
+opencv-python
+requests
+matplotlib
