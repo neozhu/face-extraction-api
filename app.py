@@ -97,4 +97,4 @@ def process_image(img):
 if __name__ == '__main__':
     # Note: When running the Flask server in a Jupyter Notebook,
     # it is recommended to set debug=False or use threading mode to avoid blocking the Notebook.
-    app.run(port=5000, debug=True, use_reloader=False)
+    app.run(host='0.0.0.0',port=5000, debug=True, use_reloader=False)
