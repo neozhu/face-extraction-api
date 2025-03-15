@@ -1,5 +1,5 @@
-[![Docker Build and Push](https://github.com/neozhu/face-extraction-api/actions/workflows/docker-image.yml/badge.svg)](https://github.com/neozhu/face-extraction-api/actions/workflows/docker-image.yml)  
-[![Python Compile Check](https://github.com/neozhu/face-extraction-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/neozhu/face-extraction-api/actions/workflows/python-app.yml)
+[![Docker Build](https://github.com/neozhu/face-extraction-api/actions/workflows/docker-image.yml/badge.svg)](https://github.com/neozhu/face-extraction-api/actions/workflows/docker-image.yml)  
+[![Python](https://github.com/neozhu/face-extraction-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/neozhu/face-extraction-api/actions/workflows/python-app.yml)
 
 # Face Extraction API with Flask and DeepFace
 
