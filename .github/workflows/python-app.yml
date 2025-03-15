@@ -1,4 +1,4 @@
-name: Python Compile Check
+name: Python Compile
 
 on:
   push:
