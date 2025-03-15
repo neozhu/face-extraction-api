@@ -4,3 +4,5 @@ opencv-python
 requests
 matplotlib
 tf-keras
+minio
+python-dotenv
