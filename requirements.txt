@@ -6,3 +6,4 @@ matplotlib
 tf-keras
 minio
 python-dotenv
+gunicorn

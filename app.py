@@ -418,15 +418,15 @@ def process_image_to_bytes(img):
     
     return jpeg.tobytes()
 
+# Ensure bucket exists on startup
+try:
+    ensure_bucket_exists()
+    logger.info("Bucket validation successful")
+except Exception as e:
+    logger.error(f"Failed to validate bucket on startup: {e}")
+
 if __name__ == '__main__':
-    # Ensure bucket exists on startup
-    try:
-        ensure_bucket_exists()
-        logger.info("Bucket validation successful")
-    except Exception as e:
-        logger.error(f"Failed to validate bucket on startup: {e}")
-    
-    # Start the Flask server
-    # Note: When running in production, use a WSGI server like gunicorn or waitress
-    logger.info("Starting Face Extraction API server on port 5000")
+    # This block is only used for local development
+    # In production, Gunicorn will run the app directly
+    logger.info("Starting Face Extraction API server on port 5000 (development mode)")
     app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
