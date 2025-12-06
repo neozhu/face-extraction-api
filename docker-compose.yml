@@ -1,0 +1,34 @@
+services:
+  face-extraction-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: face-extraction-api:latest
+    container_name: face-extraction-api
+    restart: unless-stopped
+    ports:
+      - "5002:5000"
+    environment:
+      - MINIO_ENDPOINT=${MINIO_ENDPOINT}
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+      - MINIO_BUCKET_NAME=${MINIO_BUCKET_NAME}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.face-extraction-api.rule=Host(`faceextraction.blazors.app`)"
+      - "traefik.http.routers.face-extraction-api.entrypoints=websecure"
+      - "traefik.http.routers.face-extraction-api.tls=true"
+      - "traefik.http.routers.face-extraction-api.tls.certresolver=letsencrypt"
+      - "traefik.http.services.face-extraction-api.loadbalancer.server.port=5002"
+    networks:
+      - traefik-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5002/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  traefik-network:
+    external: true
