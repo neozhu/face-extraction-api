@@ -1,9 +1,9 @@
 services:
   face-extraction:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: face-extraction-api
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: blazordevlab/face-extraction-api:latest
     container_name: face-extraction-api
     restart: unless-stopped
     ports:
