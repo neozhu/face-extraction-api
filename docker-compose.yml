@@ -1,5 +1,5 @@
 services:
-  face-extraction-api:
+  face-extraction:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,6 +9,7 @@ services:
     ports:
       - "5002:5000"
     environment:
+      - DOCKER_BUILDKIT=0
       - MINIO_ENDPOINT=${MINIO_ENDPOINT}
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
@@ -19,9 +20,9 @@ services:
       - "traefik.http.routers.face-extraction-api.entrypoints=websecure"
       - "traefik.http.routers.face-extraction-api.tls=true"
       - "traefik.http.routers.face-extraction-api.tls.certresolver=letsencrypt"
-      - "traefik.http.services.face-extraction-api.loadbalancer.server.port=5002"
+      - "traefik.http.services.face-extraction-api.loadbalancer.server.port=5000"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5002/"]
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
       interval: 30s
       timeout: 10s
       retries: 3
